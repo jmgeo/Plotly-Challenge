@@ -23,7 +23,7 @@ function getPlots(id) {
         var trace1 = {
             x: sampleValues,
             y: otuIdsMap,
-            text: OTU Labels,
+            text: otuLabels,
             marker: {
                 color: "green"
             },
@@ -40,12 +40,14 @@ function getPlots(id) {
                 tickmode: "linear",
             },
             margin: {
-                l: 125
-                r: 125
-                t: 125
+                l: 125,
+                r: 125,
+                t: 125,
                 b: 75
             }
-        }
+        };
+    //create the bar plot
+    Plotly.react("bar", data, layout)
 
     })
 }
