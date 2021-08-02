@@ -19,5 +19,33 @@ function getPlots(id) {
         var otuIdsMap = topOtuIds.map(d => "OTU" + d);
         console.log(`OTU IDs: ${otuIdsMap}`)
 
+        //Bar chart coding
+        var trace1 = {
+            x: sampleValues,
+            y: otuIdsMap,
+            text: OTU Labels,
+            marker: {
+                color: "green"
+            },
+            type: "bar",
+            orientation: "h"
+
+        };
+        //create the data variable
+        var data = [trace1]
+        //Set the layouts for the plot
+        var layout = {
+            title: "The Top 10 OTUs",
+            yaxis:{
+                tickmode: "linear",
+            },
+            margin: {
+                l: 125
+                r: 125
+                t: 125
+                b: 75
+            }
+        }
+
     })
 }
