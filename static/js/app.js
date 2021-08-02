@@ -11,7 +11,13 @@ function getPlots(id) {
         console.log(sampleValues)
 
         var otuLabels =  sampledata.samples[0].otu_labels.slice(0,10);
-        console.log (otuLabels)
+        console.log (`OTU Labels: ${otuLabels}`)
+
+        //Select the top 10 otuIds for the OTU plot, and reverse them
+        var topOtuIds = sampledata.samples[0].otu_ids.slice(0,10).reverse();
+        //adjust them to set up for plotting
+        var otuIdsMap = topOtuIds.map(d => "OTU" + d);
+        console.log(`OTU IDs: ${otuIdsMap}`)
 
     })
 }
