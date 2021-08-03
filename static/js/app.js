@@ -75,4 +75,28 @@ function getPlots(id) {
     })
 }
 
+// make a function to get the demographic information
+function getDemoInfo(id) {
+    // read the json file to get data. Add the ../../ based on talking with James/Justin tonight.
+        d3.json("../../samples.json").then((data)=> {
+    // point to the metadata information for the demographic panel
+            var metadata = data.metadata;
+            //console log it    
+            console.log(metadata)
+    
+          // filter the meta data info by the id
+           var result = metadata.filter(meta => meta.id.toString() === id)[0];
+          // select the demographic panel to display the data
+           var demographicInfo = d3.select("#sample-metadata");
+            
+         // clear the demographic info panel every time prior getting pulling the new id information
+           demographicInfo.html("");
+    
+         // point to the necessary demographic data for each id and then append that info to the panel
+            Object.entries(result).forEach((key) => {   
+                demographicInfo.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");    
+            });
+        });
+
+}
 getPlots(940)
