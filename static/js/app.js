@@ -49,6 +49,29 @@ function getPlots(id) {
     //create the bar plot
     Plotly.react("bar", data, layout)
 
+    //set up the bubble plot
+    var trace2 = {
+        x: sampledata.samples[0].otu_ids,
+        y: sampledata.samples[0].sample_values,
+        mode: "markers",
+        marker:{
+            size: sampledata.samples[0].sample_values,
+            color: sampledata.samples[0].otu_ids
+        },
+        text: sampledata.samples[0].otu_labels
+    };
+
+    var data2 = [trace2];
+    var layout2= {
+        title: "OTU Counts per Patient",
+        xaxis: {title: "OTU ID"},
+        height: 500,
+        width: 1000
+    };
+
+    // create bubble plot
+    Plotly.react("bubble", data2, layout2);
+
     })
 }
 
