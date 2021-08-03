@@ -1,7 +1,7 @@
 // Define the function for plotting
 function getPlots(id) {
     //Use the d3 to read the json
-    d3.json("samples.json").then (sampledata =>{
+    d3.json("../../samples.json").then (sampledata =>{
         console.log(sampledata)
 
         var otuIds = sampledata.samples[0].otu_ids;
@@ -51,3 +51,5 @@ function getPlots(id) {
 
     })
 }
+
+getPlots(940)
